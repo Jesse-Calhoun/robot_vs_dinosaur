@@ -1,19 +1,37 @@
 from robot import Robot
 from dinosaur import Dinosaur
-from weapon import Weapon
+
 class Battlefield:
-    def __init__(self, robot: Robot, dinosaur: Dinosaur):
-        self.robot = robot
-        self.dinosaur = dinosaur
+    def __init__(self):
+        self.robot = Robot('Bender')
+        self.dinosaur = Dinosaur('Rex', 15)
     
     def run_game(self):
-        pass
+        self.display_welcome()
+        self.battle_phase()
+        self.display_winner()
+        
 
     def display_welcome(self):
-        print('Welcome to the battlefield! Let the battle begin!')
+        print(f'''
+Welcome to the battlefield! 
+Only one can survive.
+Let the battle begin!
+''')
 
     def battle_phase(self):
-        pass
+        while self.robot.health > 0 and self.dinosaur.health > 0:
+            self.robot.attack(self.dinosaur)
+            self.dinosaur.attack(self.robot)
 
     def display_winner(self):
-        pass
+        if self.robot.health > 0:
+            print(f'''
+{self.robot.name} has defeated {self.dinosaur.name}!
+{self.robot.name} wins!
+''')
+        elif self.dinosaur.health > 0:
+            print(f'''
+{self.dinosaur.name} has defeated {self.robot.name}!
+{self.dinosaur.name} wins!
+''')

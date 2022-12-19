@@ -6,7 +6,7 @@ class Dinosaur:
         self.health = 100
     
     def attack(self, robot):
-        while self.health and robot.health > 0:
+        if robot.health > 0:
             robot.health -= self.attack_power
             print(f'''
 {self.name} attacked {robot.name} causing {robot.active_weapon.attack_power} damage.
