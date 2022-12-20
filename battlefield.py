@@ -20,7 +20,7 @@ Let the battle begin!
 ''')
 
     def battle_phase(self):
-        while self.robot.health > 0 and self.dinosaur.health > 0:
+        while self.robot.is_alive() and self.dinosaur.is_alive():
             self.robot.attack(self.dinosaur)
             self.dinosaur.attack(self.robot)
 
