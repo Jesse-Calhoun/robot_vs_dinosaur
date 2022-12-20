@@ -2,8 +2,8 @@ from weapon import Weapon
 class Robot:
    
     def __init__(self, name:str):
-        excalibur = Weapon('Excalibur', 16)
-        grass_cutter = Weapon('The Grass-Cutter', 14)
+        excalibur = Weapon('Excalibur', 17)
+        grass_cutter = Weapon('The Grass-Cutter', 12)
         mjolnir = Weapon('Mjolnir', 23)
         
         self.name = name
@@ -11,11 +11,11 @@ class Robot:
         self.active_weapon = [excalibur, grass_cutter, mjolnir]
 
     def attack(self, dinosaur):
-        active_weapon = self.choose_weapon()
+        selected_weapon = self.choose_weapon()
         if self.is_alive():
-            dinosaur.health -= active_weapon.attack_power
+            dinosaur.health -= selected_weapon.attack_power
             print(f'''
-{self.name} attacked {dinosaur.name} with {active_weapon.name} causing {active_weapon.attack_power} damage!
+{self.name} attacked {dinosaur.name} with {selected_weapon.name} causing {selected_weapon.attack_power} damage!
 {dinosaur.name} has {dinosaur.health} health remaining.
         ''')
     
