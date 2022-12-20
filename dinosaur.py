@@ -9,7 +9,7 @@ class Dinosaur:
         if self.is_alive():
             robot.health -= self.attack_power
             print(f'''
-{self.name} attacked {robot.name} causing {robot.active_weapon.attack_power} damage.
+{self.name} attacked {robot.name} causing {self.attack_power} damage.
 {robot.name} has {robot.health} health remaining.
 ''')
 
